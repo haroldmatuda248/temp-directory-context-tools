@@ -21,3 +21,10 @@ The trade-off: the original working directory is restored by re-`chdir`ing to th
 ## Edge you will hit
 
 If the original working directory is removed by another process while inside the `with` block, exiting the context will raise `FileNotFoundError` during `os.chdir(original)`. If you cannot guarantee the original directory's lifetime, capture a stable path yourself before entering the context.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
