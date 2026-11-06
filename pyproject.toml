@@ -1,6 +1,6 @@
 [project]
 name = "temp-directory-context-tools"
-version = "0.1.0"
+version = "0.1.1"
 description = "Context manager for running code inside a temporary directory and returning to the previous directory afterward"
 requires-python = ">=3.10"
 dependencies = []
